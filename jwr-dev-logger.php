@@ -21,7 +21,7 @@ defined( 'ABSPATH' ) || exit;
  * @return void
  */
 function activation_fn() {
-	$path = \WP_CONTENT_DIR . '/jwr-dev-logger';
+	$path = \WP_CONTENT_DIR . '/jwr-dev-logs';
 
 	if ( ! is_dir( $path ) ) {
 		mkdir( $path );
@@ -44,7 +44,7 @@ register_activation_hook( __FILE__, __NAMESPACE__ . '\activation_fn' );
  * @return void
  */
 function deactivation_fn() {
-	$path  = \WP_CONTENT_DIR . '/jwr-dev-logger';
+	$path  = \WP_CONTENT_DIR . '/jwr-dev-logs';
 	$files = glob( $path . '/*' );
 
 	foreach ( $files as $file ) {
