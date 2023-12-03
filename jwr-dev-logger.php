@@ -2,10 +2,10 @@
 /**
  * Plugin Name: JWR Dev Logger
  * Plugin URI: https://joshrobbs.com
- * Description: A simple logger you can use for debugging.
+ * Description: A simple logger you can use for debugging. NOTE: Deactivating this plugin will delete all of its log files.
  * Plugin Author: Josh Robbs
  * Author URI: https://joshrobbs.com
- * Version: 0.10.0
+ * Version: 1.0.0
  *
  * @since 20231203
  * @package JWR_Dev_Logger
