@@ -5,7 +5,7 @@
  * Description: A simple logger you can use for debugging.
  * Plugin Author: Josh Robbs
  * Author URI: https://joshrobbs.com
- * Version: 0.9.0
+ * Version: 0.10.0
  *
  * @since 20231203
  * @package JWR_Dev_Logger
@@ -14,6 +14,23 @@
 namespace JWR\Dev_Logger;
 
 defined( 'ABSPATH' ) || exit;
+
+/**
+ * Log a dev message to a file.
+ *
+ * @param string $message The message to log.
+ * @param string $filename The file to log to. Do not include the extension.
+ * @return void
+ */
+function log_to_dev( $message, $filename = 'jwr-dev-logger' ) {
+	$path = \WP_CONTENT_DIR . '/jwr-dev-logs/' . $filename . '.log';
+
+	// phpcs:disable WordPress.WP.AlternativeFunctions
+	$file = fopen( $path, 'a' );
+	fwrite( $file, $message . "\n" );
+	fclose( $file );
+	// phpcs:enable WordPress.WP.AlternativeFunctions
+}
 
 /**
  * Activation function to create log directory.
