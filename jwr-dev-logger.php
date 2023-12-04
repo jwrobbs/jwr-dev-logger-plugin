@@ -25,6 +25,9 @@ defined( 'ABSPATH' ) || exit;
 function log_to_dev( $message, $filename = 'jwr-dev-logger' ) {
 	$filename = sanitize_file_name( $filename );
 	$path     = \WP_CONTENT_DIR . '/jwr-dev-logs/' . $filename . '.log';
+	if ( ! is_string( $message ) ) {
+		$message = print_r( $message, true ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_print_r
+	}
 
 	// phpcs:disable WordPress.WP.AlternativeFunctions
 	$file = fopen( $path, 'a' );
